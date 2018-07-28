@@ -62,15 +62,9 @@ public class UserTester {
 		users.add(new User(6, "ACB", 50000));
 
 		/**
-		 * Sort the collection traditionally - using Comparator interface
+		 * Sort the collection using lambda expression
 		 */
-		Collections.sort(users, new Comparator<User>() {
-
-			@Override
-			public int compare(User u1, User u2) {
-				return u1.getSalary() - u2.getSalary();
-			}
-		});
+		Collections.sort(users, (User u1, User u2) -> u1.getSalary() - u2.getSalary());
 		
 		for (User each : users) {
 			System.out.println(each.toString());
