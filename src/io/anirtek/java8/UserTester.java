@@ -47,6 +47,10 @@ class User {
 
 }
 
+interface MyTester {
+	public boolean test(User user);
+}
+
 public class UserTester {
 
 	public static void main(String[] args) {
@@ -68,10 +72,16 @@ public class UserTester {
 		 */
 		Collections.sort(users, (u1, u2) -> u1.getSalary() - u2.getSalary());
 
+		MyTester tester = (user) -> user.getSalary() > 100000;
+
 		/**
 		 * For each loop for Collections : single line logic
 		 */
-		users.forEach(each -> System.out.println(each.toString()));
+		// users.forEach(each -> System.out.println(each.toString()));
+		for (User each : users) {
+			if (tester.test(each))
+				System.out.println(each.toString());
+		}
 
 		/**
 		 * Creating a new thread using traditional way of implementing run() method
@@ -94,6 +104,7 @@ public class UserTester {
 			System.out.println("My owner is not James Gosling!");
 		};
 		new Thread(thread_2).start();
+
 	}
 
 }
