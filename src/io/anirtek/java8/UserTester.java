@@ -56,7 +56,7 @@ public class UserTester {
 
 		users.add(new User(1, "ABC", 120000));
 		users.add(new User(2, "BCA", 20000));
-		users.add(new User(3, "CAB", 3000));
+		users.add(new User(3, "CAB", 312000));
 		users.add(new User(4, "CBA", 7000));
 		users.add(new User(5, "BAC", 2100));
 		users.add(new User(6, "ACB", 50000));
@@ -70,9 +70,11 @@ public class UserTester {
 		 */
 		Collections.sort(users, (u1, u2) -> u1.getSalary() - u2.getSalary());
 		
-		for (User each : users) {
-			System.out.println(each.toString());
-		}
+		/**
+		 * For each loop for Collections : single line logic
+		 */
+		users.forEach(each -> System.out.println(each.toString()));
+		
 	}
 
 }
