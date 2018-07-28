@@ -72,15 +72,14 @@ public class UserTester {
 		 * comparator type is also `User`.
 		 */
 		Collections.sort(users, (u1, u2) -> u1.getSalary() - u2.getSalary());
-
 		Predicate<User> tester = (user) -> user.getSalary() > 100000;
 
-		/*For each loop for Collections : single line logic */
+		/* For each loop for Collections : single line logic */
 		users.forEach(each -> System.out.println(each.toString()));
-		
-		/*For each loop for Collections : Using diamond operator */
+
+		/* For each loop for Collections : Using diamond operator */
 		users.forEach(System.out::println);
-		
+
 		for (User each : users) {
 			if (tester.test(each))
 				System.out.println(each.toString());
