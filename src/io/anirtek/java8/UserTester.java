@@ -62,9 +62,13 @@ public class UserTester {
 		users.add(new User(6, "ACB", 50000));
 
 		/**
-		 * Sort the collection using lambda expression
+		 * Sort the collection using lambda expression.
+		 * N.B.: We do not have to provide the User type for u1 or u2 as compilers
+		 * 		 are smart enough to know that the sort() method has the Collection
+		 * 		 called `users`, therefore the expected comparator type is also 
+		 * 		 `User`.  
 		 */
-		Collections.sort(users, (User u1, User u2) -> u1.getSalary() - u2.getSalary());
+		Collections.sort(users, (u1, u2) -> u1.getSalary() - u2.getSalary());
 		
 		for (User each : users) {
 			System.out.println(each.toString());
