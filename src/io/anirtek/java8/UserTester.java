@@ -2,7 +2,6 @@ package io.anirtek.java8;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 class User {
@@ -62,19 +61,39 @@ public class UserTester {
 		users.add(new User(6, "ACB", 50000));
 
 		/**
-		 * Sort the collection using lambda expression.
-		 * N.B.: We do not have to provide the User type for u1 or u2 as compilers
-		 * 		 are smart enough to know that the sort() method has the Collection
-		 * 		 called `users`, therefore the expected comparator type is also 
-		 * 		 `User`.  
+		 * Sort the collection using lambda expression. N.B.: We do not have to provide
+		 * the User type for u1 or u2 as compilers are smart enough to know that the
+		 * sort() method has the Collection called `users`, therefore the expected
+		 * comparator type is also `User`.
 		 */
 		Collections.sort(users, (u1, u2) -> u1.getSalary() - u2.getSalary());
-		
+
 		/**
 		 * For each loop for Collections : single line logic
 		 */
 		users.forEach(each -> System.out.println(each.toString()));
-		
+
+		/**
+		 * Creating a new thread using traditional way of implementing run() method
+		 */
+		Runnable thread_1 = new Runnable() {
+
+			@Override
+			public void run() {
+				System.out.println("Thread_1 is running");
+			}
+		};
+
+		new Thread(thread_1).start();
+
+		/**
+		 * Creating a new thread using anonymous function
+		 */
+		Runnable thread_2 = () -> {
+			System.out.println("Thread_2 is also running");
+			System.out.println("My owner is not James Gosling!");
+		};
+		new Thread(thread_2).start();
 	}
 
 }
